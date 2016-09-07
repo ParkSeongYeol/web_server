@@ -26,6 +26,20 @@ public class psyServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		
+		Runtime rt = Runtime.getRuntime();
+		Process p;
+		String[] cmdAry = {"C:/Program Files/nodejs/node", "C:/Program Files/nodejs/android.js"};
+		try {
+		    p = rt.exec(cmdAry);
+		    p.waitFor();
+		} catch (Exception e) {
+		    e.printStackTrace();
+		    response.getWriter().append("exception raised....");
+		}
+		
+		
+		
 		response.getWriter().append("psyServlet ABCDEFG");
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
